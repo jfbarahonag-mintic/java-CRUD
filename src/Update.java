@@ -1,42 +1,37 @@
 import java.io.FileWriter;
 
-public class Write {
-
+public class Update {
+    private String filename_ = null;
     private FileWriter file_ = null;
     private boolean opened_ = false;
-    String filename_ = null;
 
-    Write()
+    Update()
     {
-        filename_ = "test_write";
+        filename_ = "names.txt";
     }
 
-    Write(String filename)
+    Update(String filename)
     {
         filename_ = filename;
     }
 
-    boolean open()
-    {
+    public boolean open() {
         return open(filename_);
     }
 
-    boolean open(String filename)
+    public boolean open(String filename)
     {
         try {
-            file_ = new FileWriter(filename);
+            file_ = new FileWriter(filename, true);
             opened_ = true;
-            
         } catch (Exception e) {
             opened_ = false;
         }
-
         return opened_;
     }
 
-    boolean close()
-    {
-        if (opened_)
+    public boolean close() {
+        if(opened_)
         {
             try {
                 file_.close();
@@ -65,8 +60,7 @@ public class Write {
         return succeed;
     }
 
-    public void test()
-    {
+    public void test() {
         boolean res;
         res = open();
         if(res == false)
@@ -75,15 +69,15 @@ public class Write {
             return;
         }
 
-        String[] fruits = {"Apple", "Pear", "Banana", "Orange"};
-        
-        for (String fruit : fruits) {
-            res = writeLine(fruit + "\n"); 
+        String names[] = {"Juan", "Felipe", "Viviana", "Pepito"};
+
+        for (String name : names) {
+            res = writeLine(name + '\n');
             if(res == false)
             {
                 System.out.println("Error writing");
                 return;
-            }      
+            }
         }
 
         res = close();
@@ -92,5 +86,6 @@ public class Write {
             System.out.println("Error closing");
             return;
         }
+
     }
 }

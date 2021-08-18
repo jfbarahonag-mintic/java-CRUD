@@ -5,5 +5,8 @@ public class App {
 
         Write w = new Write();
         w.test();
+
+        Update u = new Update();
+        u.test();
     }
 }
