@@ -1,4 +1,4 @@
-public interface CustomFile {
+public interface FileBasic {
     public boolean open();
     public boolean close();
     public boolean writeLine(String line);

@@ -1,6 +1,6 @@
 import java.io.FileWriter;
 
-public class Write implements CustomFile {
+public class Write implements FileBasic {
 
     private FileWriter file_ = null;
     private boolean opened_ = false;

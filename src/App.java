@@ -3,7 +3,7 @@ public class App {
     public static void test_CRUD() {
         // instance the object
         String filename = "crud.txt";
-        Update file = new Update(filename);
+        FileCustom file = new FileCustom(filename);
         
         //open a file
         boolean res;
@@ -48,7 +48,7 @@ public class App {
             Write w = new Write();
             w.test();
     
-            Update u = new Update();
+            FileCustom u = new FileCustom();
             u.test();
         }
         else

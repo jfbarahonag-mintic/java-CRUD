@@ -2,7 +2,7 @@ import java.io.File;
 import java.util.Scanner;
 
 
-public class Read implements CustomFile {
+public class Read implements FileBasic {
 
     private File file_ = null;
     private Scanner sc_ = null;

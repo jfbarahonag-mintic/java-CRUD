@@ -2,19 +2,19 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.Scanner;
 
-public class Update implements CustomFile {
+public class FileCustom implements FileBasic {
     private String filename_ = null;
     private File file_ = null;
     private Scanner sc_ = null;
     private FileWriter file_w_ = null;
     private boolean opened_ = false;
 
-    Update()
+    FileCustom()
     {
         filename_ = "names.txt";
     }
 
-    Update(String filename)
+    FileCustom(String filename)
     {
         filename_ = filename;
     }
