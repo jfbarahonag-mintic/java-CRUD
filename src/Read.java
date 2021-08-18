@@ -6,20 +6,21 @@ public class Read {
     private File file_ = null;
     private Scanner sc_ = null;
     private boolean opened_ = false;
+    private String filepath_ = null;
 
     Read() 
     {
-        //open();
+        filepath_ = "README.md";
     }
 
     Read(String path)
     {
-        open(path);
+        filepath_ = path;
     }
 
     public boolean open()
     {
-        return open("README.md");
+        return open(filepath_);
     }
 
     private boolean open(String path)

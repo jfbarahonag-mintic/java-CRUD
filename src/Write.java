@@ -4,20 +4,21 @@ public class Write {
 
     private FileWriter file_ = null;
     private boolean opened_ = false;
+    String filename_ = null;
 
     Write()
     {
-        //open();
+        filename_ = "test_write";
     }
 
     Write(String filename)
     {
-        open(filename);
+        filename_ = filename;
     }
 
     boolean open()
     {
-        return open("test_write");
+        return open(filename_);
     }
 
     boolean open(String filename)
@@ -77,7 +78,12 @@ public class Write {
         String[] fruits = {"Apple", "Pear", "Banana", "Orange"};
         
         for (String fruit : fruits) {
-            writeLine(fruit + "\n");    
+            res = writeLine(fruit + "\n"); 
+            if(res == false)
+            {
+                System.out.println("Error writing");
+                return;
+            }      
         }
 
         res = close();
