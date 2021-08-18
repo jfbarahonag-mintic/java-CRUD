@@ -1,7 +1,8 @@
 import java.io.File;
 import java.util.Scanner;
 
-public class Read {
+
+public class Read implements CustomFile {
 
     private File file_ = null;
     private Scanner sc_ = null;
@@ -94,5 +95,16 @@ public class Read {
             System.out.println("Error closing");
             return;
         }
+    }
+
+    @Override
+    public String readLine() {
+        return nextLine();
+    }
+
+    @Override
+    public boolean writeLine(String line) {
+        // TODO Auto-generated method stub
+        return false;
     }
 }

@@ -1,6 +1,6 @@
 import java.io.FileWriter;
 
-public class Write {
+public class Write implements CustomFile {
 
     private FileWriter file_ = null;
     private boolean opened_ = false;
@@ -15,8 +15,8 @@ public class Write {
     {
         filename_ = filename;
     }
-
-    boolean open()
+    
+    public boolean open()
     {
         return open(filename_);
     }
@@ -34,7 +34,7 @@ public class Write {
         return opened_;
     }
 
-    boolean close()
+    public boolean close()
     {
         if (opened_)
         {
@@ -92,5 +92,11 @@ public class Write {
             System.out.println("Error closing");
             return;
         }
+    }
+
+    @Override
+    public String readLine() {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

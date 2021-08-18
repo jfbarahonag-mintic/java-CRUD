@@ -1,8 +1,12 @@
+import java.io.File;
 import java.io.FileWriter;
+import java.util.Scanner;
 
-public class Update {
+public class Update implements CustomFile {
     private String filename_ = null;
-    private FileWriter file_ = null;
+    private File file_ = null;
+    private Scanner sc_ = null;
+    private FileWriter file_w_ = null;
     private boolean opened_ = false;
 
     Update()
@@ -22,7 +26,10 @@ public class Update {
     public boolean open(String filename)
     {
         try {
-            file_ = new FileWriter(filename, true);
+            // this order is very important!!
+            file_ = new File(filename);
+            file_w_ = new FileWriter(filename, true);
+            sc_ =  new Scanner(file_);
             opened_ = true;
         } catch (Exception e) {
             opened_ = false;
@@ -34,7 +41,8 @@ public class Update {
         if(opened_)
         {
             try {
-                file_.close();
+                sc_.close();
+                file_w_.close();
                 opened_ = false;
             } catch (Exception e) {
                 opened_ = true;
@@ -51,13 +59,18 @@ public class Update {
     {
         boolean succeed = false;
         try {
-            file_.write(line);
+            file_w_.write(line + '\n');
             succeed = true;
         } catch (Exception e) {
             succeed = false;
         }
 
         return succeed;
+    }
+
+    public boolean hasNextLine()
+    {
+        return sc_.hasNextLine();
     }
 
     public void test() {
@@ -87,5 +100,10 @@ public class Update {
             return;
         }
 
+    }
+
+    @Override
+    public String readLine() {
+        return sc_.nextLine();
     }
 }
