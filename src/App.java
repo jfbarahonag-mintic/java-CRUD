@@ -37,24 +37,8 @@ public class App {
         System.out.println("Updated... file ["+filename+"] closed");
     }
     public static void main(String[] args) throws Exception {
-        
-        boolean test_crud = true;
-        
-        if (test_crud == false)
-        {
-            Read r = new Read();
-            r.test();
-    
-            Write w = new Write();
-            w.test();
-    
-            FileCustom u = new FileCustom();
-            u.test();
-        }
-        else
-        {
-            test_CRUD();
-        }
+
+        test_CRUD();
 
     }
 }
