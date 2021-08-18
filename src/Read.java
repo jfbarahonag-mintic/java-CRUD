@@ -9,7 +9,7 @@ public class Read {
 
     Read() 
     {
-        open();
+        //open();
     }
 
     Read(String path)
